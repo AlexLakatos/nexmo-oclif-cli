@@ -1,6 +1,7 @@
 import { Command, flags } from '@oclif/command'
 import * as fs from 'fs-extra'
 import * as path from 'path'
+import cli from 'cli-ux'
 
 export default class Setup extends Command {
   static description = 'Setup the Nexmo CLI using your API Key and Secret'
@@ -16,8 +17,8 @@ export default class Setup extends Command {
   async run() {
     const { args, flags } = this.parse(Setup)
 
-    const apiKey = flags["api-key"] || args.apiKey
-    const apiSecret = flags["api-secret"] || args.apiSecret
+    let apiKey = flags["api-key"] || args.apiKey || await cli.prompt('API Key')
+    let apiSecret = flags["api-secret"] || args.apiSecret || await cli.prompt('API Secret')
 
     const configFile = path.join(this.config.configDir, 'nexmo-config.json')
 
