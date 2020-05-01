@@ -31,8 +31,8 @@ USAGE
 <!-- commands -->
 * [`nexmoo hello [FILE]`](#nexmoo-hello-file)
 * [`nexmoo help [COMMAND]`](#nexmoo-help-command)
-* [`nexmoo number:list [FILE]`](#nexmoo-numberlist-file)
-* [`nexmoo setup [FILE]`](#nexmoo-setup-file)
+* [`nexmoo number:list`](#nexmoo-numberlist)
+* [`nexmoo setup [APIKEY] [APISECRET]`](#nexmoo-setup-apikey-apisecret)
 
 ## `nexmoo hello [FILE]`
 
@@ -71,34 +71,43 @@ OPTIONS
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.3/src/commands/help.ts)_
 
-## `nexmoo number:list [FILE]`
+## `nexmoo number:list`
 
-describe the command here
+List all numbers on your account.
 
 ```
 USAGE
-  $ nexmoo number:list [FILE]
+  $ nexmoo number:list
 
 OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+  -d, --debug            Show debug information
+  -f, --format           Format the output of the command
+  -h, --help             show CLI help
+  -i, --index=index      The page of results to return
+  -p, --pattern=pattern  pattern to be matched in number (use * to match end or start of number)
+  -s, --size=size        The amount of results to return
+  --csv                  output is csv format
+  --filter=filter        filter property by partial string matching, ex: name=foo
 ```
 
 _See code: [src/commands/number/list.ts](https://github.com/AlexLakatos/nexmo-oclif-cli/blob/v0.0.1/src/commands/number/list.ts)_
 
-## `nexmoo setup [FILE]`
+## `nexmoo setup [APIKEY] [APISECRET]`
 
-describe the command here
+Setup the Nexmo CLI using your API Key and Secret
 
 ```
 USAGE
-  $ nexmoo setup [FILE]
+  $ nexmoo setup [APIKEY] [APISECRET]
+
+ARGUMENTS
+  APIKEY     Your Nexmo API Key.
+  APISECRET  Your Nexmo API Secret.
 
 OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
+  -h, --help                   show CLI help
+  -k, --api-key=api-key        Nexmo API Key
+  -s, --api-secret=api-secret  Nexmo API Secret
 ```
 
 _See code: [src/commands/setup.ts](https://github.com/AlexLakatos/nexmo-oclif-cli/blob/v0.0.1/src/commands/setup.ts)_
